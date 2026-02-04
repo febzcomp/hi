@@ -3,106 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Febz Computer | Professional Service</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <title>Febz Computer | Service With Precision Est. 1995</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styling */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #020617; color: #f8fafc; line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        :root {
+            --bg-color: #f4ece1; /* Krem Vintage */
+            --dark-accent: #1a1a1a; /* Hitam Arang */
+            --red-accent: #8b0000; /* Merah Marun Logo */
+            --text-color: #2c2c2c;
+        }
 
-        /* Navbar transparan dengan efek Blur */
-        nav { background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); padding: 1rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #1e293b; }
-        .nav-logo { display: flex; align-items: center; gap: 10px; }
-        .nav-logo img { height: 40px; width: 40px; border-radius: 50%; border: 1px solid #38bdf8; }
-        .nav-text { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: #38bdf8; letter-spacing: 2px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/p6.png'); /* Efek tekstur kertas lama */
+        }
+
+        /* Header & Logo */
+        header { 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 4px double var(--dark-accent);
+            margin-bottom: 50px;
+        }
+        .main-logo { 
+            width: 180px; 
+            height: auto; 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+        .main-logo:hover { transform: scale(1.05); }
 
         /* Hero Section */
-        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%); }
-        .hero-img { width: 220px; height: 220px; border-radius: 50%; border: 4px solid #38bdf8; margin-bottom: 30px; box-shadow: 0 0 50px rgba(56, 189, 248, 0.2); transition: transform 0.6s ease; }
-        .hero-img:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 0 70px rgba(56, 189, 248, 0.4); }
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 10px; text-transform: uppercase; }
-        .hero h1 span { color: #38bdf8; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
-        .hero p { color: #94a3b8; font-size: 1.2rem; max-width: 650px; margin-bottom: 40px; font-weight: 300; }
+        .hero { text-align: center; padding: 0 20px 60px; }
+        .hero h1 { 
+            font-family: 'Bebas Neue', cursive; 
+            font-size: 5rem; 
+            color: var(--red-accent); 
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-weight: 700;
+            color: var(--dark-accent);
+        }
 
-        /* Tombol Modern */
-        .btn { display: inline-block; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: all 0.4s; letter-spacing: 1px; }
-        .btn-primary { background: #38bdf8; color: #020617; border: 2px solid #38bdf8; }
-        .btn-primary:hover { background: transparent; color: #38bdf8; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); }
+        /* Services Grid */
+        .services { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            padding: 40px 8%;
+            background: var(--dark-accent);
+            color: var(--bg-color);
+        }
+        .service-card { 
+            border: 1px solid #333; 
+            padding: 40px; 
+            text-align: center;
+            transition: 0.3s;
+        }
+        .service-card:hover { background: var(--red-accent); border-color: var(--red-accent); }
+        .service-card h3 { 
+            font-family: 'Bebas Neue', cursive; 
+            font-size: 2rem; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px;
+        }
+        .service-card p { font-size: 0.9rem; opacity: 0.8; }
 
-        /* Services Section */
-        .services { padding: 100px 8%; background: #020617; }
-        .services h2 { text-align: center; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 60px; color: #f8fafc; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: #0f172a; border: 1px solid #1e293b; padding: 40px; border-radius: 24px; transition: all 0.3s ease; }
-        .card:hover { border-color: #38bdf8; background: #1e293b; transform: translateY(-10px); }
-        .card h3 { font-family: 'Orbitron', sans-serif; color: #38bdf8; margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { color: #94a3b8; font-size: 1rem; }
-
-        /* CTA Section (WhatsApp) */
-        .cta { background: linear-gradient(180deg, #020617 0%, #0f172a 100%); padding: 100px 8%; text-align: center; border-top: 1px solid #1e293b; }
-        .wa-btn { background: #22c55e; color: #fff; border: 2px solid #22c55e; margin-top: 20px; }
-        .wa-btn:hover { background: transparent; color: #22c55e; box-shadow: 0 0 30px rgba(34, 197, 94, 0.4); }
+        /* CTA WhatsApp */
+        .cta-section { padding: 80px 20px; text-align: center; }
+        .cta-section h2 { font-family: 'Bebas Neue', cursive; font-size: 3rem; margin-bottom: 20px; }
+        
+        .wa-button { 
+            display: inline-block; 
+            background-color: #25d366; 
+            color: white; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 0 #128c7e;
+            transition: 0.2s;
+        }
+        .wa-button:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #128c7e; }
+        .wa-button:active { transform: translateY(2px); box-shadow: 0 0 0 #128c7e; }
 
         /* Footer */
-        footer { padding: 40px; text-align: center; border-top: 1px solid #1e293b; color: #475569; font-size: 0.85rem; }
-
-        /* Animations */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .hero-content { animation: fadeInUp 1s ease-out; }
+        footer { 
+            padding: 40px; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            border-top: 1px solid #ccc;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { padding: 1rem 5%; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">
-            <img src="logo-febz.jpeg" alt="Logo">
-            <span class="nav-text">FEBZ_COMP</span>
-        </div>
-    </nav>
+    <header>
+        <img src="logo-febz.png" alt="Febz Computer Logo" class="main-logo">
+    </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <img src="logo-febz.jpeg" alt="Febz Computer" class="hero-img">
-            <h1>FEBZ <span>COMPUTER</span></h1>
-            <p>Spesialis Perbaikan Laptop & PC dengan Standar Profesional. Cepat, Bergaransi, dan Terpercaya.</p>
-            <a href="#services" class="btn btn-primary">Lihat Layanan</a>
+        <h1>SERVICE WITH PRECISION</h1>
+        <p>Solusi Perbaikan Komputer & Laptop Sejak 1995</p>
+    </section>
+
+    <section class="services">
+        <div class="service-card">
+            <h3>HARDWARE REPAIR</h3>
+            <p>Diagnosa motherboard, penggantian komponen micro, LCD, dan keyboard dengan presisi tinggi.</p>
+        </div>
+        <div class="service-card">
+            <h3>SOFTWARE & OS</h3>
+            <p>Instalasi sistem operasi klasik hingga modern, optimasi sistem, dan pembersihan malware total.</p>
+        </div>
+        <div class="service-card">
+            <h3>DATA & UPGRADE</h3>
+            <p>Pemulihan data yang hilang, ekspansi RAM, dan migrasi SSD untuk performa perangkat yang ngebut.</p>
         </div>
     </section>
 
-    <section class="services" id="services">
-        <h2>Layanan Unggulan</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Hardware Recovery</h3>
-                <p>Reparasi Motherboard, ganti chipset, perbaikan engsel, hingga penggantian layar LED/LCD original.</p>
-            </div>
-            <div class="card">
-                <h3>System Optimization</h3>
-                <p>Instalasi ulang OS, tuning performa untuk gaming/editing, serta pembersihan hardware dari debu & panas.</p>
-            </div>
-            <div class="card">
-                <h3>Pro Upgrade</h3>
-                <p>Transformasi total kecepatan perangkat Anda dengan migrasi ke SSD High-Speed dan ekspansi memori RAM.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta" id="contact">
-        <h2 style="font-family: 'Orbitron'; margin-bottom: 20px;">Punya Masalah Perangkat?</h2>
-        <p>Hubungi teknisi kami sekarang untuk konsultasi biaya dan waktu pengerjaan.</p>
-        <a href="https://wa.me/6285222224374?text=Halo%20Febz%20Computer,%20saya%20ingin%20konsultasi%20servis" class="btn wa-btn" target="_blank">
-            Kirim Pesan WhatsApp
+    <section class="cta-section">
+        <h2>BUTUH BANTUAN SEKARANG?</h2>
+        <p style="margin-bottom: 30px;">Konsultasikan kendala perangkat Anda via WhatsApp dengan teknisi kami.</p>
+        <a href="https://wa.me/6285222224374?text=Halo%20Febz%20Computer,%20saya%20butuh%20bantuan%20teknis" class="wa-button" target="_blank">
+            HUBUNGI WHATSAPP KAMI
         </a>
     </section>
 
     <footer>
-        <p>&copy; 2026 FEBZ COMPUTER. All Rights Reserved. Engineered for Performance.</p>
+        EST. 1995 | &copy; FEBZ COMPUTER | TECH WITH PASSION
     </footer>
 
 </body>
